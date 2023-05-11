@@ -476,7 +476,7 @@ buffer_list = [15]
 for each_sector in sectors_list:
     this_sector_folder = f"{processed_data_save_in}/{each_sector['name']}"   
     for each_buffer in buffer_list:
-        this_combined_file_name = f"{this_sector_folder}/sector_{each_sector['name']}_buffer{each_buffer}_combined_results.csv"
+        this_combined_file_name = f"{this_sector_folder}/buffer{each_buffer}_combined_results.csv"
         if os.path.isfile(this_combined_file_name):
             print(f"Combined file '{this_combined_file_name}' already exist, skipping to the next one ...")
             continue
