@@ -1,6 +1,12 @@
 # flight-entry-deviation
 This is the implementation of paper "Predicting Deviation of Flight Entry into Air Sector using Machine Learning Techniques"
 
+## System Setup
+
+- Machine used: Windows 10
+- Python 3.7.15
+- Refer to `requirements.txt` for the libraries used
+
 ## Downloading Raw Data
 
 The data used in this work can be downloaded from [here](https://data.mendeley.com/datasets/8yn985bwz5). 
@@ -29,6 +35,9 @@ Afterwards, unzip the data and arrange the folders in `raw_data` like the struct
 ## Pre-processing Raw Data
 
 - Execute the code in notebook `01_filter_flights.ipynb` and `02_occupancy_processing.ipynb`
+- For running notebook `02_occupany_processing.ipynb`, two runs have to be done; one with setting `sector_name = "sector_w_esmm"` and
+another with `sector_name  = "sector_67Y"`.
+  - This is to generate preprocessed data for sector W and 67Y, respectively. 
 - After finished running the two notebooks, the processed data  folder `process_data` should have the following folder structure
 
 ```text
@@ -43,4 +52,16 @@ Afterwards, unzip the data and arrange the folders in `raw_data` like the struct
         - occupancy/
         - trajectory/
         - sector_sector_w_esmm_buffer15_combined_results.csv
+```
+
+- Navigate to `<root>/src` and run the following lines in command line
+
+```
+python train_nn.py --oversampling-factor=2 --sector=67Y
+
+python train_nn.py --oversampling-factor=3 --sector=W
+
+python train_xgb.py --oversampling-factor=2 --sector=67Y
+
+python train_xgb.py --oversampling-factor=3 --sector=W
 ```

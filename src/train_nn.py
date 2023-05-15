@@ -15,12 +15,12 @@ def main(sector, oversampling_factor, include_own_pt, normalize_video_occ, buffe
     occ_path = "../processed_data/sector_67Y/occupancy/occs/"
     video_ids_path = "../processed_data/sector_67Y/occupancy/ids.npy"
     own_pt_occ_path = "../processed_data/sector_67Y/occupancy/trajectory.csv"
-    labels_path = f'../processed_data/sector_67Y/buffer{buffer}_combined_results.csv'
+    labels_path = f'../processed_data/sector_67Y/sector_sector_67Y_buffer{buffer}_combined_results.csv'
     if sector == "W":
         occ_path = "../processed_data/sector_w_esmm/occupancy/occs/"
         video_ids_path = "../processed_data/sector_w_esmm/occupancy/ids.npy"
         own_pt_occ_path = "../processed_data/sector_w_esmm/occupancy/trajectory.csv"
-        labels_path = f'../processed_data/sector_w_esmm/buffer{buffer}_combined_results.csv'
+        labels_path = f'../processed_data/sector_w_esmm/sector_sector_w_esmm_buffer{buffer}_combined_results.csv'
     labels_and_vec = pd.read_csv(labels_path)
     labels_and_vec_ids = labels_and_vec['id'].values
     nan_indexes = labels_and_vec.loc[labels_and_vec['entry_deviation'].isnull()].index
