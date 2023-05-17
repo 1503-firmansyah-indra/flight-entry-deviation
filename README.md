@@ -59,9 +59,15 @@ another with `sector_name  = "sector_67Y"`.
 ```
 python train_nn.py --oversampling-factor=2 --sector=67Y
 
+python train_nn.py --oversampling-factor=2 --occ-type conv --sector=67Y
+
 python train_nn.py --oversampling-factor=3 --sector=W
+
+python train_nn.py --oversampling-factor=3 --occ-type conv --sector=W
 
 python train_xgb.py --oversampling-factor=2 --sector=67Y
 
 python train_xgb.py --oversampling-factor=3 --sector=W
 ```
+
+- Once done, all results have been generated
